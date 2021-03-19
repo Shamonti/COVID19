@@ -1,0 +1,21 @@
+.navbar {
+  &-brand {
+    font-family: 'Anton', sans-serif;
+    font-size: 3rem;
+    line-height: 2.2rem;
+    color: $color-tertiary !important;
+    padding: 1.5rem 0 !important;
+
+    span{
+      color: $color-primary;
+    }
+  }
+}
+
+.nav-link{
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+  color: $color-tertiary !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}

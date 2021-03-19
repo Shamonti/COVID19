@@ -1,0 +1,90 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  text-transform: none;
+  background-color: #f2f3f6;
+  background-image: none;
+  background-size: auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+a {
+  text-decoration: none;
+}
+
+.heading-primary {
+  color: #ff6276;
+}
+
+.u-center-text {
+  text-align: center !important;
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem !important;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important;
+}
+
+.u-margin-top-huge {
+  margin-top: 10rem !important;
+}
+
+.card {
+  background-color: #FF6276;
+  color: white;
+}
+
+.navbar-brand {
+  font-family: 'Anton', sans-serif;
+  font-size: 3rem;
+  line-height: 2.2rem;
+  color: #313656 !important;
+  padding: 1.5rem 0 !important;
+}
+
+.navbar-brand span {
+  color: #ff6276;
+}
+
+.nav-link {
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+  color: #313656 !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+.section-banner {
+  background: url("/static/img/banner.png");
+  background-repeat: no-repeat;
+  color: white;
+  height: 90vh;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,6 @@
+.section-banner {
+  background: url("/static/img/banner.png");
+  background-repeat: no-repeat;
+  color: white;
+  height: 90vh;
+}
