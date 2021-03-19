@@ -61,6 +61,23 @@ a {
   color: white;
 }
 
+.btn--square {
+  font-family: 'Anton', sans-serif;
+  font-weight: 300;
+  font-size: 2rem !important;
+  font-weight: 300;
+  letter-spacing: 0px;
+  border-radius: .5rem;
+  background-color: #ff6276;
+  padding: 0 2rem 2.5rem 2rem;
+  color: #ffffff;
+}
+
+.btn:hover {
+  color: #ffffff;
+  background-color: #ff4c5d;
+}
+
 .navbar-brand {
   font-family: 'Anton', sans-serif;
   font-size: 3rem;
@@ -82,9 +99,40 @@ a {
 }
 
 .section-banner {
-  background: url("/static/img/banner.png");
   background-repeat: no-repeat;
   color: white;
   height: 90vh;
+}
+
+.section-banner__text {
+  padding-top: 14rem;
+}
+
+.section-banner__text .heading-primary {
+  font-weight: 500;
+  line-height: 2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+}
+
+.section-banner__text .heading-primary--main {
+  font-family: 'Anton', sans-serif;
+  font-size: 12.8rem;
+  line-height: 12.8rem;
+  color: #313656 !important;
+  padding: 1.5rem 0 !important;
+  text-transform: uppercase;
+}
+
+.section-banner__text .heading-primary--main span {
+  color: #ff6276;
+}
+
+.section-banner__text .heading-primary--sub {
+  font-size: 2.2rem;
+  color: #8c969f;
+  font-weight: 500;
+  line-height: 4.4rem;
+  letter-spacing: .03rem;
 }
 /*# sourceMappingURL=style.css.map */

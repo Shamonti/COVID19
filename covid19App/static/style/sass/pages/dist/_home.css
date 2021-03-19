@@ -4,3 +4,10 @@
   color: white;
   height: 90vh;
 }
+.section-banner__text {
+  padding-top: 18rem;
+}
+.section-banner__text .heading-primary {
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+}
