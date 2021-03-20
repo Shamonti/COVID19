@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import requests
 from django.views.generic import TemplateView 
-from .models import economy, economy20, economy21, education, mental_health
+from .models import economy, economy20, economy21, educationFeb, educationMar, educationApr, mental_healthDepression, mental_healthAnxiety
 
 # Create your views here.
 
@@ -42,13 +42,6 @@ class economyChartView(TemplateView):
         context['economy21_qs'] = economy21.objects.all()
         return context
     
-  # def get_context_data(self, **kwargs):
-  #       # Call the base implementation first to get a context
-  #       context = super().get_context_data(**kwargs)
-  #       # Add in a QuerySet of all the books
-  #       context['economy20_qs'] = economy20.objects.all()
-  #       return context    
-    
 class educationChartView(TemplateView):
     
   template_name = 'covid19App/education.html'
@@ -57,7 +50,9 @@ class educationChartView(TemplateView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
-        context['education_qs'] = education.objects.all()
+        context['educationFeb_qs'] = educationFeb.objects.all()
+        context['educationMar_qs'] = educationMar.objects.all()
+        context['educationApr_qs'] = educationApr.objects.all()
         return context
     
     
@@ -69,5 +64,6 @@ class mental_healthChartView(TemplateView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
-        context['mental_health_qs'] = mental_health.objects.all()
+        context['mental_healthDepression_qs'] = mental_healthDepression.objects.all()
+        context['mental_healthAnxiety_qs'] = mental_healthAnxiety.objects.all()
         return context

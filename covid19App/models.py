@@ -1,4 +1,6 @@
 from django.db import models
+# from datetime import date
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
 class economy(models.Model):
@@ -30,25 +32,54 @@ class economy21(models.Model):
   
   class Meta:
     verbose_name_plural = "economy21"
-  
-  
-class education(models.Model):
-  name = models.CharField(max_length=220)
-  money = models.IntegerField()
-  
-  def __str__(self):
-    return "{}-{}".format(self.name, self.money)
-  
-  class Meta:
-    verbose_name_plural = "education"
-  
-  
-class mental_health(models.Model):
-  name = models.CharField(max_length=220)
-  money = models.IntegerField()
+    
+class educationFeb(models.Model):
+  country = models.CharField(max_length=220, blank=True)
+  status = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(4)])
   
   def __str__(self):
-    return "{}-{}".format(self.name, self.money)
+    return "{}_{}".format(self.country, self.status)
   
   class Meta:
-    verbose_name_plural = "mental_health"  
+    verbose_name_plural = "educationFeb"
+    
+class educationMar(models.Model):
+  country = models.CharField(max_length=220, blank=True)
+  status = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(4)])
+  
+  def __str__(self):
+    return "{}_{}".format(self.country, self.status)
+  
+  class Meta:
+    verbose_name_plural = "educationMar"
+    
+class educationApr(models.Model):
+  country = models.CharField(max_length=220, blank=True)
+  status = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(4)])
+  
+  def __str__(self):
+    return "{}_{}".format(self.country, self.status)
+  
+  class Meta:
+    verbose_name_plural = "educationApr"
+  
+  
+class mental_healthDepression(models.Model):
+  state = models.CharField(max_length=220)
+  value = models.FloatField()
+  
+  def __str__(self):
+    return "{}-{}".format(self.state, self.value)
+  
+  class Meta:
+    verbose_name_plural = "mental_healthDepression"  
+    
+class mental_healthAnxiety(models.Model):
+  state = models.CharField(max_length=220)
+  value = models.FloatField()
+  
+  def __str__(self):
+    return "{}-{}".format(self.state, self.value)
+  
+  class Meta:
+    verbose_name_plural = "mental_healthAnxiety"  

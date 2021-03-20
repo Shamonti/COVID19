@@ -5,14 +5,14 @@
 {% block scripts %}
 <!-- <script>
   $(document).ready(function () {
-    var ctx = document.getElementById('educationChart').getContext('2d');
+    var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: [{% for item in education_qs %}'{{item.name}}', {% endfor %}],
+        labels: [{% for item in qs %}'{{item.country}}', {% endfor %}],
         datasets: [{
-          label: '# of Votes',
-          data: [{% for item in education_qs %}'{{item.money}}', {% endfor %}],
+          label: '2019',
+          data: [{% for item in qs %}'{{item.gdp}}', {% endfor %}],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -43,10 +43,10 @@
       }
     });
   })
-</script> -->
+</script>-->
 
 <script>
-  var ctx = document.getElementById("educationChart").getContext('2d');
+  var ctx = document.getElementById("eduChart").getContext('2d');
 
 var original = Chart.defaults.global.legend.onClick;
 Chart.defaults.global.legend.onClick = function(e, legendItem) {
@@ -54,28 +54,93 @@ Chart.defaults.global.legend.onClick = function(e, legendItem) {
   original.call(this, e, legendItem);
 };
 
-var myChart = new Chart(ctx, {
+var eduChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["M", "T", "W", "T", "F", "S", "S"],
+
+    labels: [{% for item in educationFeb_qs %}'{{item.country}}', {% endfor %}],
+
     datasets: [{
-      label: 'apples',
-      backgroundColor: "rgba(153,255,51,1)",
-      data: [12, 19, 3, 17, 28, 24, 7],
+      label: 'February',
+      backgroundColor: "rgba(255, 99, 132, 0.2)",
+      borderColor: "rgba(255, 99, 132, .3)",
+      borderWidth: 1,
+      data: [{% for item in educationFeb_qs %}'{{item.status}}', {% endfor %}],
     }, {
-      label: 'oranges',
-      backgroundColor: "rgba(255,153,0,1)",
-      data: [30, 29, 5, 5, 20, 3, 10],
-    }]
-  }
+      label: 'March',
+      backgroundColor: "rgba(255, 206, 86, 0.3)",
+      borderColor: "rgba(255, 206, 86, .5)",
+      borderWidth: 1,
+      data: [{% for item in educationMar_qs %}'{{item.status}}', {% endfor %}],
+    }, {
+      label: 'April',
+      backgroundColor: "rgba(75, 192, 192, 0.3)",
+      borderColor: "rgba(75, 192, 192, .5)",
+      borderWidth: 1,
+      data: [{% for item in educationApr_qs %}'{{item.status}}', {% endfor %}],}
+    ]
+
+  },
+
+  options: {
+     responsive: true,
+     legend: {
+       position: 'bottom',
+     },
+     hover: {
+       mode: 'label'
+     },
+     scales: {
+       xAxes: [{
+         display: true,
+         scaleLabel: {
+           display: false,
+           labelString: ''
+         }
+       }],
+       yAxes: [{
+         display: true,
+         scaleLabel: {
+           display: false,
+           labelString: ''
+         },
+         ticks: {
+           min: 0,
+           max: 4,
+           stepSize: 1,
+           suggestedMin: 0.5,
+           suggestedMax: 5.5,
+           callback: function(label, index, labels) {
+             switch (label) {
+               case 0:
+                 return '';
+               case 1:
+                 return 'Fully Open';
+               case 2:
+                 return 'Partially Open';
+               case 3:
+                 return 'Closed';
+               case 4:
+                 return 'Academic Break';
+             }
+           }
+         },
+         gridLines: {
+           display: false
+         }
+       }]
+     }
+   }
+  
 });
 
 var labels = {
-  "apples": true,
-  "oranges": true
+  "February": true,
+  "March": true,
+  "April": true,
 };
 
-var caption = document.getElementById("caption");
+var caption = document.getElementById("educaption");
 
 var update_caption = function(legend) {
   labels[legend.text] = legend.hidden;
@@ -84,9 +149,9 @@ var update_caption = function(legend) {
     return labels[key];
   });
 
-  var text = selected.length ? selected.join(" & ") : "nothing";
+  var text = selected.length ? selected.join(" and ") : "nothing";
 
-  caption.innerHTML = "The chart is displaying " + text;
+  caption.innerHTML = "The chart is displaying status of educational institution in 2019 of " + text;
 };
 </script>
 
@@ -94,7 +159,9 @@ var update_caption = function(legend) {
 
 {% block content %}
 
-<h1>IMPACT ON EDUCATION</h1>
-<canvas id="educationChart" width="400" height="180"></canvas>
-<p id="caption">The chart is displaying apples & oranges</p>
+<h1>IMPACT on Education</h1>
+<canvas id="eduChart" width="400" height="180"></canvas>
+
+<br>
+<p id="educaption">The chart is displaying status of educational institution in 2019 of February, March and April.</p>
 {% endblock content %}
