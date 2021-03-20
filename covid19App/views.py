@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import requests
 from django.views.generic import TemplateView 
-from .models import economy, education, mental_health
+from .models import economy, economy20, economy21, education, mental_health
 
 # Create your views here.
 
@@ -38,8 +38,16 @@ class economyChartView(TemplateView):
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
         context['qs'] = economy.objects.all()
+        context['economy20_qs'] = economy20.objects.all()
+        context['economy21_qs'] = economy21.objects.all()
         return context
     
+  # def get_context_data(self, **kwargs):
+  #       # Call the base implementation first to get a context
+  #       context = super().get_context_data(**kwargs)
+  #       # Add in a QuerySet of all the books
+  #       context['economy20_qs'] = economy20.objects.all()
+  #       return context    
     
 class educationChartView(TemplateView):
     

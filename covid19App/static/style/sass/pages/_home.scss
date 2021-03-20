@@ -1,4 +1,4 @@
-.section-banner{
+.section-banner {
   // background: url("/static/img/banner.png");
   background-repeat: no-repeat;
   color: white;
@@ -7,26 +7,28 @@
   &__text {
     padding-top: 14rem;
 
-    .heading-primary{
-      font-weight: 500;
+    .heading-primary {
+      font-family: 'Open Sans', sans-serif;
+      font-size: $default-font-size;
+      font-weight: 700;
       line-height: 2rem;
       text-transform: uppercase;
       letter-spacing: .1rem;
 
-      &--main{
+      &--main {
         font-family: 'Anton', sans-serif;
         font-size: 12.8rem;
         line-height: 12.8rem;
         color: $color-tertiary !important;
         padding: 1.5rem 0 !important;
         text-transform: uppercase;
-    
-        span{
+
+        span {
           color: $color-primary;
         }
       }
 
-      &--sub{
+      &--sub {
         font-size: 2.2rem;
         color: $color-grey-dark-3;
         font-weight: 500;

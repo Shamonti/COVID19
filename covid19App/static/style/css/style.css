@@ -109,7 +109,9 @@ a {
 }
 
 .section-banner__text .heading-primary {
-  font-weight: 500;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
   line-height: 2rem;
   text-transform: uppercase;
   letter-spacing: .1rem;

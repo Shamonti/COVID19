@@ -16,5 +16,6 @@
     "titleBar.inactiveForeground": "#15202b99"
   },
   "peacock.color": "#61dafb",
-  "compile-hero.disable-compile-files-on-did-save-code": false
+  "compile-hero.disable-compile-files-on-did-save-code": false,
+  "python.pythonPath": "C:\\Users\\This PC\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"
 }
