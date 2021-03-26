@@ -7,53 +7,83 @@
 <div class="container-fluid">
 
     <!-- BANNER -->
-    <div class="row section-banner">
-        <div class="col-md-6 section-banner__text">
-            <h3 class="heading-primary">corona virus</h3>
-            <h1 class="heading-primary--main">covid-<span>19</span> </h1>
-            <p class="heading-primary--sub pt-1">Find Out How CoronaVirus Is Claiming Thousands of Lives & What You Can Do To
-                Stay Safe</p>
-            <div class="btn btn--square pt-5 mt-3">Stay Home, Stay Safe</div>
+    <section class=" section-banner">
+        <div class="row">
+            <div class="col-md-6 section-banner__text">
+                <h3 class="heading-primary">corona virus</h3>
+                <h1 class="heading-primary--main">covid-<span>19</span> </h1>
+                <p class="heading-primary--sub pt-1">Find Out How CoronaVirus Is Claiming Thousands of Lives & What You
+                    Can
+                    Do To
+                    Stay Safe</p>
+                <div class="btn btn--square pt-5 mt-3">Stay Home, Stay Safe</div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="row">
+    <!-- TRACKER -->
+    <section class="section-tracker  u-margin-top-medium">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <br>
+                <h1 class="heading-secondary--main">TRACK THE SPREAD OF COVID-19</h1>
+            </div>
+        </div>
+
         <br>
-        <h1 class="display-7">Covid 19 - Global Data </h1>
-        <hr>
-        <div class="card card--1 col m-2">
-            <div class="card-body">
-                <h4 class="card-title">New Confirmed</h4>
-                <p class="card-text number">{{globalSummary.NewConfirmed}}</p>
+
+        <div class="row">
+            <div class="card card--1 col-md-4">
+                <div class="card-body text-center">
+                    <h4 class="card-title">New Confirmed</h4>
+                    <p class="card-text">{{globalSummary.NewConfirmed}}</p>
+                </div>
             </div>
-        </div>
-        <div class="card card--2 col m-2 color2">
-            <div class="card-body">
-                <h4 class="card-title">NewDeaths</h4>
-                <p class="card-text number">{{globalSummary.NewDeaths}}</p>
+            <div class="card card--2 col-md-4">
+                <div class="card-body">
+                    <h4 class="card-title">New Deaths</h4>
+                    <p class="card-text">{{globalSummary.NewDeaths}}</p>
+                </div>
             </div>
-        </div>
-        <div class="card card--3 col m-2 color3">
-            <div class="card-body">
-                <h4 class="card-title">Total Deaths</h4>
-                <p class="card-text number">{{globalSummary.TotalDeaths}}</p>
-            </div>
-        </div>
-        <div class="card col m-2 color4">
-            <div class="card-body">
-                <h4 class="card-title">New Recovered</h4>
-                <p class="card-text number">{{globalSummary.NewRecovered}}</p>
-            </div>
-        </div>
-        <div class="card col m-2 color5">
-            <div class="card-body">
-                <h4 class="card-title">Total Recovered</h4>
-                <p class="card-text number">{{globalSummary.TotalRecovered}}</p>
+            <div class="card card--3 col-md-4">
+                <div class="card-body">
+                    <h4 class="card-title">Total Deaths</h4>
+                    <p class="card-text">{{globalSummary.TotalDeaths}}</p>
+                </div>
             </div>
         </div>
 
-    </div>
-    <hr>
+        <br>
+
+        <div class="row">
+            <div class="card card--4 col-md-6">
+                <div class="card-body">
+                    <h4 class="card-title">New Recovered</h4>
+                    <p class="card-text">{{globalSummary.NewRecovered}}</p>
+                </div>
+            </div>
+            <div class="card card--5 col-md-6">
+                <div class="card-body">
+                    <h4 class="card-title">Total Recovered</h4>
+                    <p class="card-text">{{globalSummary.TotalRecovered}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <br>
+                <p>Source: <a href="https://documenter.getpostman.com/view/10808728/SzS8rjbc">https://documenter.getpostman.com/view/10808728/SzS8rjbc</a> </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="">
+        <div class="row mt-5">
+            <div class="col-md-12"></div>
+        </div>
+    </section>
+
 
     <!-- <h4 class="border rounded p-3">
         <div class="display-8">

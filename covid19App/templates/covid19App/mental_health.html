@@ -3,6 +3,8 @@
 {% block title %}COVID19{% endblock title%}
 
 {% block scripts %}
+
+<!-- Anxiety and depression -->
 <script>
   var ctx = document.getElementById("mental_healthChart").getContext('2d');
 
@@ -20,14 +22,14 @@ var mental_healthChart = new Chart(ctx, {
 
     datasets: [{
       label: 'Symptoms of Depressive Disorder',
-      backgroundColor: "rgba(255, 99, 132, 0.2)",
-      borderColor: "rgba(255, 99, 132, .3)",
+      backgroundColor: "rgba(255, 99, 132, 0.9)",
+      borderColor: "rgba(255, 99, 132, 1)",
       borderWidth: 1,
       data: [{% for item in mental_healthDepression_qs %}'{{item.value}}', {% endfor %}],
     }, {
       label: 'Symptoms of Anxiety Disorder',
-      backgroundColor: "rgba(255, 206, 86, 0.3)",
-      borderColor: "rgba(255, 206, 86, .5)",
+      backgroundColor: "rgba(255, 206, 86, 0.9)",
+      borderColor: "rgba(255, 206, 86, 1)",
       borderWidth: 1,
       data: [{% for item in mental_healthAnxiety_qs %}'{{item.value}}', {% endfor %}],
     }
@@ -55,6 +57,66 @@ var update_caption = function(legend) {
   caption.innerHTML = "The chart is displaying ??? of Symptoms of " + text;
 };
 </script>
+
+<!-- SUICIDE -->
+<!-- 2019 -->
+<script>
+  var ctx = document.getElementById("mental_healthChart02").getContext('2d');
+
+
+var mental_healthChart02 = new Chart(ctx, {
+  type: 'bar',
+  data: {
+
+    labels: [{% for item in mental_healthSuicide_qs %}'{{item.state}}', {% endfor %}],
+
+    datasets: [{
+      label: '2018',
+      backgroundColor: "rgba(255, 99, 132, 0.9)",
+      borderColor: "rgba(255, 99, 132, 1)",
+      borderWidth: 1,
+      data: [{% for item in mental_healthSuicide18_qs %}'{{item.value}}', {% endfor %}],
+    }, 
+    {
+      label: '2019',
+      backgroundColor: "rgba(255, 206, 86, 0.9)",
+      borderColor: "rgba(255, 206, 86, 1)",
+      borderWidth: 1,
+      data: [{% for item in mental_healthSuicide_qs %}'{{item.value}}', {% endfor %}],
+    }, {
+      label: '2020',
+      backgroundColor: "rgba(75, 192, 192, 0.9)",
+      borderColor: "rgba(75, 192, 192, 1)",
+      borderWidth: 1,
+      data: [{% for item in mental_healthSuicide20_qs %}'{{item.value}}', {% endfor %}],
+    }
+    ]
+
+  }
+});
+
+var labels = {
+  "2018": true,
+  "2019": true,
+  "2020": true,
+};
+
+var caption02 = document.getElementById("caption02");
+
+var update_caption = function(legend) {
+  labels[legend.text] = legend.hidden;
+
+  var selected = Object.keys(labels).filter(function(key) {
+    return labels[key];
+  });
+
+  var text = selected.length ? selected.join(" and ") : "nothing";
+
+  caption02.innerHTML = "The chart is displaying the rate of suicide in US in " + text;
+};
+</script>
+
+
 {% endblock scripts %}
 
 {% block content %}
@@ -62,4 +124,15 @@ var update_caption = function(legend) {
 <h1>IMPACT ON Mental Health</h1>
 <canvas id="mental_healthChart" width="400" height="180"></canvas>
 <p id="caption">The chart is displaying ??? of Symptoms of Depression Disorder and Anxiety Disorder.</p>
+<p>Source: <a href="https://www.cdc.gov/nchs/covid19/pulse/mental-health.htm">Centers for Disease Control and Prevention. CDC twenty four seven. Saving Lives, Protecting People</a></p>
+<br>
+<br>
+
+<h1>IMPACT ON Suicide Rate</h1>
+<canvas id="mental_healthChart02" width="400" height="180"></canvas>
+<p id="caption02">The chart is displaying the rate of Suicide in US in 2018, 2019 and 2020.</p>
+<p>Source for 2020: <a href="https://www.americashealthrankings.org/explore/annual/measure/Suicide/state/ALL">America's Health Rankings analysis of CDC WONDER Online Database</a></p>
+<p>Source for 2018 and 2019: <a href="https://www.cdc.gov/nchs/pressroom/default.htm">National Center for Health Statistics</a></p>
+<br>
+<br>
 {% endblock content %}

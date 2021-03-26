@@ -14,12 +14,12 @@
           label: '2019',
           data: [{% for item in qs %}'{{item.gdp}}', {% endfor %}],
           backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
+            'rgba(255, 99, 132, 0.9)',
+            'rgba(54, 162, 235, 0.9)',
+            'rgba(255, 206, 86, 0.9)',
+            'rgba(75, 192, 192, 0.9)',
+            'rgba(153, 102, 255, 0.9)',
+            'rgba(255, 159, 64, 0.9)'
           ],
           borderColor: [
             'rgba(255, 99, 132, 1)',
@@ -62,20 +62,20 @@ var myChart = new Chart(ctx, {
 
     datasets: [{
       label: '2019',
-      backgroundColor: "rgba(255, 99, 132, 0.2)",
-      borderColor: "rgba(255, 99, 132, .3)",
+      backgroundColor: "rgba(255, 99, 132, 0.9)",
+      borderColor: "rgba(255, 99, 132, 1)",
       borderWidth: 1,
       data: [{% for item in qs %}'{{item.gdp}}', {% endfor %}],
     }, {
       label: '2020',
-      backgroundColor: "rgba(255, 206, 86, 0.3)",
-      borderColor: "rgba(255, 206, 86, .5)",
+      backgroundColor: "rgba(255, 206, 86, 0.9)",
+      borderColor: "rgba(255, 206, 86, 1)",
       borderWidth: 1,
       data: [{% for item in economy20_qs %}'{{item.gdp20}}', {% endfor %}],
     }, {
       label: '2021',
-      backgroundColor: "rgba(75, 192, 192, 0.3)",
-      borderColor: "rgba(75, 192, 192, .5)",
+      backgroundColor: "rgba(75, 192, 192, 0.9)",
+      borderColor: "rgba(75, 192, 192, 1)",
       borderWidth: 1,
       data: [{% for item in economy21_qs %}'{{item.gdp21}}', {% endfor %}],}
     ]
@@ -103,6 +103,64 @@ var update_caption = function(legend) {
   caption.innerHTML = "The chart is displaying GDP in percentage of " + text;
 };
 </script>
+<script>
+  var ctx = document.getElementById("unemploymentChart").getContext('2d');
+
+// var original = Chart.defaults.global.legend.onClick;
+// Chart.defaults.global.legend.onClick = function(e, legendItem) {
+//   update_caption(legendItem);
+//   original.call(this, e, legendItem);
+// };
+
+var unemploymentChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+
+    labels: [{% for item in unemploy10_qs %}'{{item.country10}}', {% endfor %}],
+
+    datasets: [{
+      label: '2018',
+      backgroundColor: "rgb(255, 99, 132, 0.9)",
+      borderColor: "rgba(255, 99, 132, 1)",
+      borderWidth: 1,
+      data: [{% for item in unemploy18_qs %}'{{item.rate}}', {% endfor %}],
+    }, {
+      label: '2019',
+      backgroundColor: "rgba(255, 206, 86, 0.9)",
+      borderColor: "rgba(255, 206, 86, 1)",
+      borderWidth: 1,
+      data: [{% for item in unemploy19_qs %}'{{item.rate}}', {% endfor %}],
+    }, {
+      label: '2020',
+      backgroundColor: "rgba(75, 192, 192, 0.9)",
+      borderColor: "rgba(75, 192, 192, 1)",
+      borderWidth: 1,
+      data: [{% for item in unemploy20_qs %}'{{item.rate}}', {% endfor %}],
+    }]
+
+  }
+});
+
+var labels = {
+  "2018": true,
+  "2019": true,
+  "2020": true,
+};
+
+var caption02 = document.getElementById("caption02");
+
+var update_caption = function(legend) {
+  labels[legend.text] = legend.hidden;
+
+  var selected = Object.keys(labels).filter(function(key) {
+    return labels[key];
+  });
+
+  var text = selected.length ? selected.join(" & ") : "nothing";
+
+  caption02.innerHTML = "The chart is displaying GDP in percentage of " + text;
+};
+</script>
 
 {% endblock scripts %}
 
@@ -112,4 +170,16 @@ var update_caption = function(legend) {
 <canvas id="myChart" width="400" height="180"></canvas>
 
 <p id="caption">The chart is displaying GDP in percentage of 2019, 2020 and 2021.</p>
+
+<p>Source: <a href="https://www.imf.org/en/Publications/WEO/Issues/2021/01/26/2021-world-economic-outlook-update">World Economic Outlook(WEO)</a></p>
+<br>
+<br>
+
+<h1>ECONOMIC IMPACT on EMPLOYMENT</h1>
+<canvas id="unemploymentChart" width="400" height="180"></canvas>
+
+<p id="caption02">The chart is displaying GDP in percentage of 2019, 2020 and 2021.</p>
+<p>Source: <a href="https://ilostat.ilo.org/data/">International Labour Organization(ILO)</a></p>
+<br>
+<br>
 {% endblock content %}

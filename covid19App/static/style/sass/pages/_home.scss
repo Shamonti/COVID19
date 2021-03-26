@@ -35,9 +35,37 @@
         line-height: 4.4rem;
         letter-spacing: .03rem;
       }
-    }
+    }    
   }
 }
+
+.heading-secondary {
+
+  &--main {
+    font-family: 'Anton', sans-serif;
+    font-weight: 300;
+    font-size: 5.6rem;
+    line-height: 6.7rem;
+    color: $color-tertiary !important;
+    padding: 1.5rem 0 !important;
+    text-transform: uppercase;
+
+    span {
+      color: $color-primary;
+    }
+  }
+
+  &--sub {
+    font-size: 2.2rem;
+    color: $color-grey-dark-3;
+    font-weight: 500;
+    line-height: 4.4rem;
+    letter-spacing: .03rem;
+  }
+}
+
+
+
 
 // .section-about {
 //   background-color: $color-grey-light-1;

@@ -1,6 +1,41 @@
 .card {
 
-  background-color: #FF6276;
-  color: white;
+  background-color: $color-primary-light;
+  color: $color-white;
+  border-right: .5rem solid $color-white !important;
+  border: none;
+  max-width: 25rem;
+  max-height: 12.5rem !important;
+  text-align: center;
+  padding: 2.4rem 0;
+  
+  &:first-child {
+    margin-left: auto;
+    border-top-left-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+    padding: 2.4rem 0 2.5rem 2rem;
+  }
+  
+  &:last-child {
+    border-right: none !important;
+    margin-right: auto;
+    border-top-right-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+    padding: 2.4rem 2rem 2.5rem 0;
+  }
 
+  &-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: $default-font-size;
+    text-transform: uppercase;
+    line-height: 2rem;
+  }
+
+  &-text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 2.8rem;
+  }
 }

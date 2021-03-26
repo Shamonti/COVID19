@@ -11,15 +11,15 @@
       data: {
         labels: [{% for item in qs %}'{{item.country}}', {% endfor %}],
         datasets: [{
-          label: '2019',
+          label: '2020',
           data: [{% for item in qs %}'{{item.gdp}}', {% endfor %}],
           backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
+            'rgba(255, 99, 132, 0.9)',
+            'rgba(54, 162, 235, 0.9)',
+            'rgba(255, 206, 86, 0.9)',
+            'rgba(75, 192, 192, 0.9)',
+            'rgba(153, 102, 255, 0.9)',
+            'rgba(255, 159, 64, 0.9)'
           ],
           borderColor: [
             'rgba(255, 99, 132, 1)',
@@ -45,8 +45,9 @@
   })
 </script>-->
 
+<!-- 2020 - Feb, Mar, Apr -->
 <script>
-  var ctx = document.getElementById("eduChart").getContext('2d');
+  var ctx = document.getElementById("eduChart01").getContext('2d');
 
 var original = Chart.defaults.global.legend.onClick;
 Chart.defaults.global.legend.onClick = function(e, legendItem) {
@@ -54,7 +55,7 @@ Chart.defaults.global.legend.onClick = function(e, legendItem) {
   original.call(this, e, legendItem);
 };
 
-var eduChart = new Chart(ctx, {
+var eduChart01 = new Chart(ctx, {
   type: 'bar',
   data: {
 
@@ -62,20 +63,20 @@ var eduChart = new Chart(ctx, {
 
     datasets: [{
       label: 'February',
-      backgroundColor: "rgba(255, 99, 132, 0.2)",
-      borderColor: "rgba(255, 99, 132, .3)",
+      backgroundColor: "rgba(255, 99, 132, 0.9)",
+      borderColor: "rgba(255, 99, 132, 1)",
       borderWidth: 1,
       data: [{% for item in educationFeb_qs %}'{{item.status}}', {% endfor %}],
     }, {
       label: 'March',
-      backgroundColor: "rgba(255, 206, 86, 0.3)",
-      borderColor: "rgba(255, 206, 86, .5)",
+      backgroundColor: "rgba(255, 206, 86, 01)",
+      borderColor: "rgba(255, 206, 86, 1)",
       borderWidth: 1,
       data: [{% for item in educationMar_qs %}'{{item.status}}', {% endfor %}],
     }, {
       label: 'April',
-      backgroundColor: "rgba(75, 192, 192, 0.3)",
-      borderColor: "rgba(75, 192, 192, .5)",
+      backgroundColor: "rgba(75, 192, 192, 01)",
+      borderColor: "rgba(75, 192, 192, 1)",
       borderWidth: 1,
       data: [{% for item in educationApr_qs %}'{{item.status}}', {% endfor %}],}
     ]
@@ -94,8 +95,8 @@ var eduChart = new Chart(ctx, {
        xAxes: [{
          display: true,
          scaleLabel: {
-           display: false,
-           labelString: ''
+           display: true,
+           labelString: '2020'
          }
        }],
        yAxes: [{
@@ -151,17 +152,596 @@ var update_caption = function(legend) {
 
   var text = selected.length ? selected.join(" and ") : "nothing";
 
-  caption.innerHTML = "The chart is displaying status of educational institution in 2019 of " + text;
+  caption.innerHTML = "The chart is displaying status of educational institution in 2020 of " + text;
 };
 </script>
+
+
+<!-- 2020 - May, June, July -->
+<script>
+  var ctx = document.getElementById("eduChart02").getContext('2d');
+
+// var original = Chart.defaults.global.legend.onClick;
+// Chart.defaults.global.legend.onClick = function(e, legendItem) {
+//   update_caption(legendItem);
+//   original.call(this, e, legendItem);
+// };
+
+var eduChart02 = new Chart(ctx, {
+  type: 'bar',
+  data: {
+
+    labels: [{% for item in educationFeb_qs %}'{{item.country}}', {% endfor %}],
+
+    datasets: [{
+      label: 'May',
+      backgroundColor: "rgba(255, 99, 132, 0.9)",
+      borderColor: "rgba(255, 99, 132, 1)",
+      borderWidth: 1,
+      data: [{% for item in educationMay_qs %}'{{item.status}}', {% endfor %}],
+    }, {
+      label: 'June',
+      backgroundColor: "rgba(255, 206, 86, 0.9)",
+      borderColor: "rgba(255, 206, 86, 1)",
+      borderWidth: 1,
+      data: [{% for item in educationJun_qs %}'{{item.status}}', {% endfor %}],
+    }, {
+      label: 'July',
+      backgroundColor: "rgba(75, 192, 192, 0.9)",
+      borderColor: "rgba(75, 192, 192, 1)",
+      borderWidth: 1,
+      data: [{% for item in educationJuly_qs %}'{{item.status}}', {% endfor %}],}
+    ]
+
+  },
+
+  options: {
+     responsive: true,
+     legend: {
+       position: 'bottom',
+     },
+     hover: {
+       mode: 'label'
+     },
+     scales: {
+       xAxes: [{
+         display: true,
+         scaleLabel: {
+           display: true,
+           labelString: '2020'
+         }
+       }],
+       yAxes: [{
+         display: true,
+         scaleLabel: {
+           display: false,
+           labelString: ''
+         },
+         ticks: {
+           min: 0,
+           max: 4,
+           stepSize: 1,
+           suggestedMin: 0.5,
+           suggestedMax: 5.5,
+           callback: function(label, index, labels) {
+             switch (label) {
+               case 0:
+                 return '';
+               case 1:
+                 return 'Fully Open';
+               case 2:
+                 return 'Partially Open';
+               case 3:
+                 return 'Closed';
+               case 4:
+                 return 'Academic Break';
+             }
+           }
+         },
+         gridLines: {
+           display: false
+         }
+       }]
+     }
+   }
+  
+});
+
+var labels = {
+  "May": true,
+  "June": true,
+  "July": true,
+};
+
+var caption02 = document.getElementById("educaption02");
+
+var update_caption02 = function(legend) {
+  labels[legend.text] = legend.hidden;
+
+  var selected = Object.keys(labels).filter(function(key) {
+    return labels[key];
+  });
+
+  var text = selected.length ? selected.join(" and ") : "nothing";
+
+  caption02.innerHTML = "The chart is displaying status of educational institution in 2020 of " + text;
+};
+</script>
+
+
+
+<!-- 2020 - Aug, Sept, Oct -->
+<script>
+  var ctx = document.getElementById("eduChart03").getContext('2d');
+
+// var original = Chart.defaults.global.legend.onClick;
+// Chart.defaults.global.legend.onClick = function(e, legendItem) {
+//   update_caption(legendItem);
+//   original.call(this, e, legendItem);
+// };
+
+var eduChart03 = new Chart(ctx, {
+  type: 'bar',
+  data: {
+
+    labels: [{% for item in educationFeb_qs %}'{{item.country}}', {% endfor %}],
+
+    datasets: [{
+      label: 'Aug',
+      backgroundColor: "rgba(255, 99, 132, 0.9)",
+      borderColor: "rgba(255, 99, 132, 1)",
+      borderWidth: 1,
+      data: [{% for item in educationAug_qs %}'{{item.status}}', {% endfor %}],
+    }, {
+      label: 'Sept',
+      backgroundColor: "rgba(255, 206, 86, 0.9)",
+      borderColor: "rgba(255, 206, 86, 1)",
+      borderWidth: 1,
+      data: [{% for item in educationSept_qs %}'{{item.status}}', {% endfor %}],
+    }, {
+      label: 'Oct',
+      backgroundColor: "rgba(75, 192, 192, 0.9)",
+      borderColor: "rgba(75, 192, 192, 1)",
+      borderWidth: 1,
+      data: [{% for item in educationOct_qs %}'{{item.status}}', {% endfor %}],}
+    ]
+
+  },
+
+  options: {
+     responsive: true,
+     legend: {
+       position: 'bottom',
+     },
+     hover: {
+       mode: 'label'
+     },
+     scales: {
+       xAxes: [{
+         display: true,
+         scaleLabel: {
+           display: true,
+           labelString: '2020'
+         }
+       }],
+       yAxes: [{
+         display: true,
+         scaleLabel: {
+           display: false,
+           labelString: ''
+         },
+         ticks: {
+           min: 0,
+           max: 4,
+           stepSize: 1,
+           suggestedMin: 0.5,
+           suggestedMax: 5.5,
+           callback: function(label, index, labels) {
+             switch (label) {
+               case 0:
+                 return '';
+               case 1:
+                 return 'Fully Open';
+               case 2:
+                 return 'Partially Open';
+               case 3:
+                 return 'Closed';
+               case 4:
+                 return 'Academic Break';
+             }
+           }
+         },
+         gridLines: {
+           display: false
+         }
+       }]
+     }
+   }
+  
+});
+
+var labels = {
+  "Aug": true,
+  "Sept": true,
+  "Oct": true,
+};
+
+var caption03 = document.getElementById("educaption03");
+
+var update_caption03 = function(legend) {
+  labels[legend.text] = legend.hidden;
+
+  var selected = Object.keys(labels).filter(function(key) {
+    return labels[key];
+  });
+
+  var text = selected.length ? selected.join(" and ") : "nothing";
+
+  caption03.innerHTML = "The chart is displaying status of educational institution in 2020 of " + text;
+};
+</script>
+
+
+<!-- 2020 - Nov, Dec -->
+<script>
+  var ctx = document.getElementById("eduChart04").getContext('2d');
+
+// var original = Chart.defaults.global.legend.onClick;
+// Chart.defaults.global.legend.onClick = function(e, legendItem) {
+//   update_caption(legendItem);
+//   original.call(this, e, legendItem);
+// };
+
+var eduChart04 = new Chart(ctx, {
+  type: 'bar',
+  data: {
+
+    labels: [{% for item in educationNov_qs %}'{{item.country}}', {% endfor %}],
+
+    datasets: [{
+      label: 'Nov',
+      backgroundColor: "rgba(255, 99, 132, 0.9)",
+      borderColor: "rgba(255, 99, 132, 1)",
+      borderWidth: 1,
+      data: [{% for item in educationNov_qs %}'{{item.status}}', {% endfor %}],
+    }, {
+      label: 'Dec',
+      backgroundColor: "rgba(255, 206, 86, 0.9)",
+      borderColor: "rgba(255, 206, 86, 1)",
+      borderWidth: 1,
+      data: [{% for item in educationDec_qs %}'{{item.status}}', {% endfor %}],}
+
+    ]
+
+  },
+
+  options: {
+     responsive: true,
+     legend: {
+       position: 'bottom',
+     },
+     hover: {
+       mode: 'label'
+     },
+     scales: {
+       xAxes: [{
+         display: true,
+         scaleLabel: {
+           display: true,
+           labelString: '2020'
+         }
+       }],
+       yAxes: [{
+         display: true,
+         scaleLabel: {
+           display: false,
+           labelString: ''
+         },
+         ticks: {
+           min: 0,
+           max: 4,
+           stepSize: 1,
+           suggestedMin: 0.5,
+           suggestedMax: 5.5,
+           callback: function(label, index, labels) {
+             switch (label) {
+               case 0:
+                 return '';
+               case 1:
+                 return 'Fully Open';
+               case 2:
+                 return 'Partially Open';
+               case 3:
+                 return 'Closed';
+               case 4:
+                 return 'Academic Break';
+             }
+           }
+         },
+         gridLines: {
+           display: false
+         }
+       }]
+     }
+   }
+  
+});
+
+var labels = {
+  "Nov": true,
+  "Dec": true,
+};
+
+var caption04 = document.getElementById("eduChart04");
+
+var update_caption04 = function(legend) {
+  labels[legend.text] = legend.hidden;
+
+  var selected = Object.keys(labels).filter(function(key) {
+    return labels[key];
+  });
+
+  var text = selected.length ? selected.join(" and ") : "nothing";
+
+  caption04.innerHTML = "The chart is displaying status of educational institution in 2020 of " + text;
+};
+</script>
+
+<!-- 2021 - Jan, Feb, Mar -->
+<script>
+  var ctx = document.getElementById("eduChart05").getContext('2d');
+
+// var original = Chart.defaults.global.legend.onClick;
+// Chart.defaults.global.legend.onClick = function(e, legendItem) {
+//   update_caption(legendItem);
+//   original.call(this, e, legendItem);
+// };
+
+var eduChart05 = new Chart(ctx, {
+  type: 'bar',
+  data: {
+
+    labels: [{% for item in educationJan21_qs %}'{{item.country}}', {% endfor %}],
+
+    datasets: [{
+      label: 'Jan',
+      backgroundColor: "rgba(255, 99, 132, 0.9)",
+      borderColor: "rgba(255, 99, 132, 1)",
+      borderWidth: 1,
+      data: [{% for item in educationJan21_qs %}'{{item.status}}', {% endfor %}],
+    }, {
+      label: 'Feb',
+      backgroundColor: "rgba(255, 206, 86, 0.9)",
+      borderColor: "rgba(255, 206, 86, 1)",
+      borderWidth: 1,
+      data: [{% for item in educationFeb21_qs %}'{{item.status}}', {% endfor %}],
+    }, {
+      label: 'Mar',
+      backgroundColor: "rgba(75, 192, 192, 0.9)",
+      borderColor: "rgba(75, 192, 192, 1)",
+      borderWidth: 1,
+      data: [{% for item in educationMar21_qs %}'{{item.status}}', {% endfor %}],}
+    ]
+
+  },
+
+  options: {
+     responsive: true,
+     legend: {
+       position: 'bottom',
+     },
+     hover: {
+       mode: 'label'
+     },
+     scales: {
+       xAxes: [{
+         display: true,
+         scaleLabel: {
+           display: true,
+           labelString: '2021'
+         }
+       }],
+       yAxes: [{
+         display: true,
+         scaleLabel: {
+           display: false,
+           labelString: ''
+         },
+         ticks: {
+           min: 0,
+           max: 4,
+           stepSize: 1,
+           suggestedMin: 0.5,
+           suggestedMax: 5.5,
+           callback: function(label, index, labels) {
+             switch (label) {
+               case 0:
+                 return '';
+               case 1:
+                 return 'Fully Open';
+               case 2:
+                 return 'Partially Open';
+               case 3:
+                 return 'Closed';
+               case 4:
+                 return 'Academic Break';
+             }
+           }
+         },
+         gridLines: {
+           display: false
+         }
+       }]
+     }
+   }
+  
+});
+
+var labels = {
+  "Jan": true,
+  "Feb": true,
+  "Mar": true,
+};
+
+var caption05 = document.getElementById("eduChart05");
+
+var update_caption05 = function(legend) {
+  labels[legend.text] = legend.hidden;
+
+  var selected = Object.keys(labels).filter(function(key) {
+    return labels[key];
+  });
+
+  var text = selected.length ? selected.join(" and ") : "nothing";
+
+  caption05.innerHTML = "The chart is displaying status of educational institution in 2020 of " + text;
+};
+</script>
+
+<!-- Impact on Research -->
+<script>
+  var ctx = document.getElementById("eduChart06").getContext('2d');
+
+// var original = Chart.defaults.global.legend.onClick;
+// Chart.defaults.global.legend.onClick = function(e, legendItem) {
+//   update_caption(legendItem);
+//   original.call(this, e, legendItem);
+// };
+
+var eduChart06 = new Chart(ctx, {
+  type: 'pie',
+  data: {
+
+    labels: [{% for item in educationResearch_qs %}'{{item.situation}}', {% endfor %}],
+
+    datasets: [{
+      data: [{% for item in educationResearch_qs %}'{{item.percentage}}', {% endfor %}],
+      backgroundColor: [
+        '#FF6384',
+        '#FF9F40',
+        '#FFCD56',
+        '#4BC0C0',
+      ],
+      hoverBackgroundColor: [
+        "#FF3D67",
+        "#FF9124",
+        "#FFC233",
+        "#22CECE",
+        "#36A2EB",
+      ],
+      hoverBorderColor: "#fff",
+      hoverBorderWidth: 1,
+    }
+    ],
+    labels: [
+      "Scientific research conferences have been cancelled or postponed",
+      "International travel has been cancelled (no more visiting professors, no missions abroad, etc.)",
+      "Scientific research projects are in danger of not being successfully completed",
+      "All scientific research has stopped at our institution"
+    ]
+  },
+
+  options: {
+     responsive: true,
+     legend: {
+       position: 'bottom',
+     },
+     hover: {
+       mode: 'label'
+     },
+     scales: {
+       xAxes: [{
+         display: false,
+         scaleLabel: {
+           display: true,
+           labelString: ''
+         }
+       }],
+       yAxes: [{
+         display: false,
+         scaleLabel: {
+           display: false,
+           labelString: ''
+         },
+         gridLines: {
+           display: false
+         }
+       }]
+     }
+
+     
+   }
+  
+});
+
+var labels = {
+  "Jan": true,
+};
+
+var caption06 = document.getElementById("eduChart06");
+
+var update_caption05 = function(legend) {
+  labels[legend.text] = legend.hidden;
+
+  var selected = Object.keys(labels).filter(function(key) {
+    return labels[key];
+  });
+
+  var text = selected.length ? selected.join(" and ") : "nothing";
+
+  caption06.innerHTML = "The chart is displaying status of educational institution in 2020 of " + text;
+};
+</script>
+
 
 {% endblock scripts %}
 
 {% block content %}
 
 <h1>IMPACT on Education</h1>
-<canvas id="eduChart" width="400" height="180"></canvas>
+<canvas id="eduChart01" width="400" height="180"></canvas>
+<p id="educaption">The chart is displaying status of educational institution in 2020 of February, March and April.</p>
+<p>Source: <a href="https://en.unesco.org/covid19/educationresponse ">UNESCO</a></p>
+<br>
+<br>
+<br>
+<canvas id="eduChart02" width="400" height="180"></canvas>
+<br>
+<p id="educaption02">The chart is displaying status of educational institution in 2020 of May, June and July.</p>
 
 <br>
-<p id="educaption">The chart is displaying status of educational institution in 2019 of February, March and April.</p>
+<br>
+<br>
+<canvas id="eduChart03" width="400" height="180"></canvas>
+<br>
+<p id="educaption03">The chart is displaying status of educational institution in 2020 of August, September and October.</p>
+<br>
+<br>
+<br>
+<canvas id="eduChart04" width="400" height="180"></canvas>
+<br>
+<p id="educaption04">The chart is displaying status of educational institution in 2020 of November and December.</p>
+<br>
+<br>
+<br>
+<canvas id="eduChart05" width="400" height="180"></canvas>
+<br>
+<p id="educaption05">The chart is displaying status of educational institution in 2021 of January, February and March.</p>
+<br>
+<br>
+<br>
+<canvas id="eduChart06" width="400" height="180"></canvas>
+<br>
+<p id="educaption06">The chart is displaying impact on Research</p>
+
+<p>Source: <a href="https://www.iau-aiu.net/">International Association of Universities
+  : The Global Voice of Higher Education</a></p>
+  <br>
+  <br>
+
+
+<h1 id='red'>81%</h1>
+<h1 id='orange'>83%</h1>
+<h1 id='yellow'>52%</h1>
+<h1 id='blue'>21%</h1>
 {% endblock content %}

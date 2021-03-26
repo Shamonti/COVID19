@@ -9,41 +9,21 @@
 .u-margin-bottom-medium {
   margin-bottom: 4rem !important;
 }
+
 .u-margin-bottom-small {
   margin-bottom: 1.5rem !important;
 }
+
 .u-margin-top-huge {
   margin-top: 10rem !important;
 }
-.u-margin-top-medium {
-  margin-top: 8rem !important;
-}
-
 
 #educaption06 {
   position: relative;
 }
+
 #red {
   position: absolute;
-  top: 340rem;
-  left: 77rem;
-  color: $color-white;
-}
-#orange {
-  position: absolute;
-  top: 357rem;
-  left: 65rem;
-  color: $color-white;
-}
-#yellow {
-  position: absolute;
   top: 341rem;
-  left: 53rem;
-  color: $color-white;
-}
-#blue {
-  position: absolute;
-  top: 331rem;
-  left: 62rem;
-  color: $color-white;
+  left: 77rem;
 }
