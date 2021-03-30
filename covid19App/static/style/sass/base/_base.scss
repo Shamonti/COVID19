@@ -13,6 +13,8 @@ html {
 body {
   box-sizing: border-box;
   font-size: $default-font-size;
+  color: $color-primary-light-2 !important;
+  background-color: $color-white;
 }
 
 $default-font-size : 1.6rem;

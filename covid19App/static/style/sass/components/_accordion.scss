@@ -1,0 +1,93 @@
+.section-stay_healthy {
+  .accordion {
+
+    &-item {
+      margin-bottom: -1px;
+      border: 10px solid $color-white;
+      border-top-left-radius: 1rem !important;
+      border-top-right-radius: 1rem !important;
+    }
+  
+    &-button {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 2.2rem;
+      line-height: 2.6rem;
+      color: $color-primary-light-2;
+      background-color: $color-tertiary;
+      padding: 2rem;
+      border-radius: 1rem !important;
+  
+      &:hover {
+        color: $color-white;
+        background-color: $color-primary;
+        box-shadow: none;
+      }
+  
+      &:not(.collapsed) {
+        color: $color-white !important;
+        background-color: $color-primary !important;
+      }
+  
+      &:focus, &:active{
+        outline: none !important;
+        box-shadow: none;
+      }
+    }
+  
+    &-body {
+      line-height: 2.9rem;
+      color: $color-primary-light-2;
+      background-color: $color-tertiary;
+      padding: 2rem 4.5rem;
+    }
+  }
+}
+
+.section-faq {
+  .accordion {
+
+    &-item {
+      margin-bottom: -1px;
+      border: 10px solid $color-tertiary;
+      border-top-left-radius: 1rem !important;
+      border-top-right-radius: 1rem !important;
+    }
+  
+    &-button {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 2.2rem;
+      line-height: 2.6rem;
+      color: $color-primary-light-2;
+      background-color: $color-white;
+      padding: 2rem;
+      border-radius: 1rem !important;
+  
+      &:hover {
+        color: $color-white;
+        background-color: $color-primary;
+        box-shadow: none;
+      }
+  
+      &:not(.collapsed) {
+        color: $color-white !important;
+        background-color: $color-primary !important;
+      }
+  
+      &:focus, &:active{
+        outline: none !important;
+        box-shadow: none;
+      }
+    }
+  
+    &-body {
+      line-height: 2.9rem;
+      color: $color-primary-light-2;
+      background-color: $color-white;
+      padding: 2rem 4.5rem;
+    }
+  }
+}
+
+

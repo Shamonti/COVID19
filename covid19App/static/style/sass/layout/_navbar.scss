@@ -3,11 +3,11 @@
     font-family: 'Anton', sans-serif;
     font-size: 3rem;
     line-height: 2.2rem;
-    color: $color-tertiary !important;
+    color: $color-primary-light-1 !important;
     padding: 1.5rem 0 !important;
 
     span{
-      color: $color-primary;
+      color: $color-secondary-dark-1;
     }
   }
 }
@@ -15,7 +15,24 @@
 .nav-link{
   font-size: 1.8rem;
   line-height: 2.7rem;
-  color: $color-tertiary !important;
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
+  color: $color-primary-light-1 !important;
+  padding-left: 2.5rem !important;
+  padding-right: 2.5rem !important;
+  width: 100%;
+}
+
+ul.navbar-nav a {
+
+  -webkit-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+
+  &:hover, &:focus, &:active {
+    color: $color-secondary !important;
+  }
+}
+
+.navbar.scrolled {
+  background-color: $color-white !important;
+  transition: background-color 200ms linear;
+  border-bottom: 1px solid rgba($color-tertiary-dark, .3) ;
 }

@@ -24,6 +24,11 @@ def index(request):
     return render(request , 'covid19App/index.html' ,
                   {'globalSummary' : globalSummary ,
                    'countries' : countries})
+
+
+
+
+
     
 
 # def economy(request):

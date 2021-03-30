@@ -6,56 +6,99 @@
 
 <!-- Anxiety and depression -->
 <script>
+  Chart.defaults.global.defaultFontStyle = 'bolder';
+  Chart.defaults.global.defaultFontSize = 12;
+  Chart.Legend.prototype.afterFit = function() {
+    this.height = this.height + 30;
+  };
+
   var ctx = document.getElementById("mental_healthChart").getContext('2d');
 
-var original = Chart.defaults.global.legend.onClick;
-Chart.defaults.global.legend.onClick = function(e, legendItem) {
-  update_caption(legendItem);
-  original.call(this, e, legendItem);
-};
+  var original = Chart.defaults.global.legend.onClick;
+  Chart.defaults.global.legend.onClick = function(e, legendItem) {
+    update_caption(legendItem);
+    original.call(this, e, legendItem);
+  };
 
-var mental_healthChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
+  var mental_healthChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
 
-    labels: [{% for item in mental_healthDepression_qs %}'{{item.state}}', {% endfor %}],
+      labels: [{% for item in mental_healthDepression_qs %}'{{item.state}}', {% endfor %}],
 
-    datasets: [{
-      label: 'Symptoms of Depressive Disorder',
-      backgroundColor: "rgba(255, 99, 132, 0.9)",
-      borderColor: "rgba(255, 99, 132, 1)",
-      borderWidth: 1,
-      data: [{% for item in mental_healthDepression_qs %}'{{item.value}}', {% endfor %}],
-    }, {
-      label: 'Symptoms of Anxiety Disorder',
-      backgroundColor: "rgba(255, 206, 86, 0.9)",
-      borderColor: "rgba(255, 206, 86, 1)",
-      borderWidth: 1,
-      data: [{% for item in mental_healthAnxiety_qs %}'{{item.value}}', {% endfor %}],
-    }
-    ]
+      datasets: [{
+        label: 'Symptoms of Depressive Disorder',
+        backgroundColor: "rgba(255, 99, 132, 0.9)",
+        borderColor: "rgba(255, 99, 132, 1)",
+        borderWidth: 1,
+        data: [{% for item in mental_healthDepression_qs %}'{{item.value}}', {% endfor %}],
+      }, {
+        label: 'Symptoms of Anxiety Disorder',
+        backgroundColor: "rgba(255, 206, 86, 0.9)",
+        borderColor: "rgba(255, 206, 86, 1)",
+        borderWidth: 1,
+        data: [{% for item in mental_healthAnxiety_qs %}'{{item.value}}', {% endfor %}],
+      }
+      ]
 
-  }
-});
+    },
+    options: {
+     responsive: true,
+     legend: {
+       position: 'top',
+        labels: {
+          fontSize: 16,
+        }
+     },
+     hover: {
+       mode: 'label'
+     },
+     scales: {
+       xAxes: [{
+         display: true,
+         scaleLabel: {
+           display: false,
+           labelString: ''
+         },
+         gridLines: {
+           display: false
+         }
+       }],
+       yAxes: [{
+         display: true,
+         scaleLabel: {
+           display: true,
+           labelString: ''
+         },
+         ticks: {
 
-var labels = {
-  "Depression Disorder": true,
-  "Anxiety Disorder": true,
-};
-
-var caption = document.getElementById("caption");
-
-var update_caption = function(legend) {
-  labels[legend.text] = legend.hidden;
-
-  var selected = Object.keys(labels).filter(function(key) {
-    return labels[key];
+         },
+         gridLines: {
+           display: true
+         }
+       }]
+     }
+   }
   });
 
-  var text = selected.length ? selected.join(" & ") : "nothing";
+  var labels = {
+    "Depression Disorder": true,
+    "Anxiety Disorder": true,
+  };
 
-  caption.innerHTML = "The chart is displaying ??? of Symptoms of " + text;
-};
+  var caption = document.getElementById("caption");
+
+  var update_caption = function(legend) {
+    labels[legend.text] = legend.hidden;
+
+    var selected = Object.keys(labels).filter(function(key) {
+      return labels[key];
+    });
+
+    var text = selected.length ? selected.join(" & ") : "nothing";
+
+    caption.innerHTML = "The chart is displaying ??? of Symptoms of " + text;
+  };
 </script>
 
 <!-- SUICIDE -->
@@ -92,7 +135,44 @@ var mental_healthChart02 = new Chart(ctx, {
     }
     ]
 
-  }
+  },
+  options: {
+     responsive: true,
+     legend: {
+       position: 'top',
+        labels: {
+          fontSize: 16,
+        }
+     },
+     hover: {
+       mode: 'label'
+     },
+     scales: {
+       xAxes: [{
+         display: true,
+         scaleLabel: {
+           display: false,
+           labelString: ''
+         },
+         gridLines: {
+           display: false
+         }
+       }],
+       yAxes: [{
+         display: true,
+         scaleLabel: {
+           display: false,
+           labelString: ''
+         },
+         ticks: {
+
+         },
+         gridLines: {
+           display: true
+         }
+       }]
+     }
+   }
 });
 
 var labels = {
@@ -121,18 +201,37 @@ var update_caption = function(legend) {
 
 {% block content %}
 
-<h1>IMPACT ON Mental Health</h1>
-<canvas id="mental_healthChart" width="400" height="180"></canvas>
-<p id="caption">The chart is displaying ??? of Symptoms of Depression Disorder and Anxiety Disorder.</p>
-<p>Source: <a href="https://www.cdc.gov/nchs/covid19/pulse/mental-health.htm">Centers for Disease Control and Prevention. CDC twenty four seven. Saving Lives, Protecting People</a></p>
-<br>
-<br>
+<section class="section-mental_health u-padding-top-huge">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="heading-secondary--main text-center">IMPACT ON Mental Health</h2>
+        <p class="heading-secondary--sub text-center">As new measures
+          and effects are introduced - especially isolation and its impact on many people's normal
+          activities, routines, or livelihoods - levels of loneliness, depression, harmful alcohol, and drug
+          use, and self-harm or suicidal behavior are expected to increase.</p>
+        <canvas class="pt-5" id="mental_healthChart" width="400" height="180"></canvas>
+        <p class="text-center" id="caption">The chart is displaying ??? of Symptoms of Depression Disorder and Anxiety Disorder.</p>
+        <p class="text-center">Source: <a href="https://www.cdc.gov/nchs/covid19/pulse/mental-health.htm">Centers for Disease Control and Prevention. CDC twenty four seven. Saving Lives, Protecting People</a></p>
+      </div>
+    </div>
+  </div>
 
-<h1>IMPACT ON Suicide Rate</h1>
-<canvas id="mental_healthChart02" width="400" height="180"></canvas>
-<p id="caption02">The chart is displaying the rate of Suicide in US in 2018, 2019 and 2020.</p>
-<p>Source for 2020: <a href="https://www.americashealthrankings.org/explore/annual/measure/Suicide/state/ALL">America's Health Rankings analysis of CDC WONDER Online Database</a></p>
-<p>Source for 2018 and 2019: <a href="https://www.cdc.gov/nchs/pressroom/default.htm">National Center for Health Statistics</a></p>
-<br>
-<br>
+</section>
+
+<section class="section-suicide_rate u-section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="heading-secondary--main text-center">IMPACT ON Suicide Rate</h2>
+        <p class="heading-secondary--sub text-center">Widely reported studies modelling the effect of the covid-19 pandemic on suicide rates predicted increases ranging from 1% to 145%.</p>
+        <canvas class="pt-5" id="mental_healthChart02" width="450" height="180"></canvas>
+        <p class="text-center" id="caption02">The chart is displaying the rate of Suicide in US in 2018, 2019 and 2020.</p>
+        <p class="text-center">Source for 2020: <a href="https://www.americashealthrankings.org/explore/annual/measure/Suicide/state/ALL">America's Health Rankings analysis of CDC WONDER Online Database</a></p>
+        <p class="text-center">Source for 2018 and 2019: <a href="https://www.cdc.gov/nchs/pressroom/default.htm">National Center for Health Statistics</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock content %}

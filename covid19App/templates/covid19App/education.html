@@ -47,6 +47,12 @@
 
 <!-- 2020 - Feb, Mar, Apr -->
 <script>
+  Chart.defaults.global.defaultFontStyle = 'bolder';
+  Chart.defaults.global.defaultFontSize = 16;
+  Chart.Legend.prototype.afterFit = function() {
+    this.height = this.height + 30;
+  };
+
   var ctx = document.getElementById("eduChart01").getContext('2d');
 
 var original = Chart.defaults.global.legend.onClick;
@@ -86,7 +92,7 @@ var eduChart01 = new Chart(ctx, {
   options: {
      responsive: true,
      legend: {
-       position: 'bottom',
+       position: 'top',
      },
      hover: {
        mode: 'label'
@@ -97,6 +103,9 @@ var eduChart01 = new Chart(ctx, {
          scaleLabel: {
            display: true,
            labelString: '2020'
+         },
+         gridLines: {
+           display: false
          }
        }],
        yAxes: [{
@@ -127,7 +136,7 @@ var eduChart01 = new Chart(ctx, {
            }
          },
          gridLines: {
-           display: false
+           display: true
          }
        }]
      }
@@ -161,12 +170,6 @@ var update_caption = function(legend) {
 <script>
   var ctx = document.getElementById("eduChart02").getContext('2d');
 
-// var original = Chart.defaults.global.legend.onClick;
-// Chart.defaults.global.legend.onClick = function(e, legendItem) {
-//   update_caption(legendItem);
-//   original.call(this, e, legendItem);
-// };
-
 var eduChart02 = new Chart(ctx, {
   type: 'bar',
   data: {
@@ -198,7 +201,7 @@ var eduChart02 = new Chart(ctx, {
   options: {
      responsive: true,
      legend: {
-       position: 'bottom',
+       position: 'top',
      },
      hover: {
        mode: 'label'
@@ -209,6 +212,9 @@ var eduChart02 = new Chart(ctx, {
          scaleLabel: {
            display: true,
            labelString: '2020'
+         },
+         gridLines: {
+           display: false
          }
        }],
        yAxes: [{
@@ -239,7 +245,7 @@ var eduChart02 = new Chart(ctx, {
            }
          },
          gridLines: {
-           display: false
+           display: true
          }
        }]
      }
@@ -274,12 +280,6 @@ var update_caption02 = function(legend) {
 <script>
   var ctx = document.getElementById("eduChart03").getContext('2d');
 
-// var original = Chart.defaults.global.legend.onClick;
-// Chart.defaults.global.legend.onClick = function(e, legendItem) {
-//   update_caption(legendItem);
-//   original.call(this, e, legendItem);
-// };
-
 var eduChart03 = new Chart(ctx, {
   type: 'bar',
   data: {
@@ -311,7 +311,7 @@ var eduChart03 = new Chart(ctx, {
   options: {
      responsive: true,
      legend: {
-       position: 'bottom',
+       position: 'top',
      },
      hover: {
        mode: 'label'
@@ -322,6 +322,9 @@ var eduChart03 = new Chart(ctx, {
          scaleLabel: {
            display: true,
            labelString: '2020'
+         },
+         gridLines: {
+           display: false
          }
        }],
        yAxes: [{
@@ -352,7 +355,7 @@ var eduChart03 = new Chart(ctx, {
            }
          },
          gridLines: {
-           display: false
+           display: true
          }
        }]
      }
@@ -386,11 +389,6 @@ var update_caption03 = function(legend) {
 <script>
   var ctx = document.getElementById("eduChart04").getContext('2d');
 
-// var original = Chart.defaults.global.legend.onClick;
-// Chart.defaults.global.legend.onClick = function(e, legendItem) {
-//   update_caption(legendItem);
-//   original.call(this, e, legendItem);
-// };
 
 var eduChart04 = new Chart(ctx, {
   type: 'bar',
@@ -418,7 +416,7 @@ var eduChart04 = new Chart(ctx, {
   options: {
      responsive: true,
      legend: {
-       position: 'bottom',
+       position: 'top',
      },
      hover: {
        mode: 'label'
@@ -429,6 +427,9 @@ var eduChart04 = new Chart(ctx, {
          scaleLabel: {
            display: true,
            labelString: '2020'
+         },
+         gridLines: {
+           display: false
          }
        }],
        yAxes: [{
@@ -459,7 +460,7 @@ var eduChart04 = new Chart(ctx, {
            }
          },
          gridLines: {
-           display: false
+           display: true
          }
        }]
      }
@@ -490,12 +491,6 @@ var update_caption04 = function(legend) {
 <!-- 2021 - Jan, Feb, Mar -->
 <script>
   var ctx = document.getElementById("eduChart05").getContext('2d');
-
-// var original = Chart.defaults.global.legend.onClick;
-// Chart.defaults.global.legend.onClick = function(e, legendItem) {
-//   update_caption(legendItem);
-//   original.call(this, e, legendItem);
-// };
 
 var eduChart05 = new Chart(ctx, {
   type: 'bar',
@@ -528,7 +523,7 @@ var eduChart05 = new Chart(ctx, {
   options: {
      responsive: true,
      legend: {
-       position: 'bottom',
+       position: 'top',
      },
      hover: {
        mode: 'label'
@@ -539,6 +534,9 @@ var eduChart05 = new Chart(ctx, {
          scaleLabel: {
            display: true,
            labelString: '2021'
+         },
+         gridLines: {
+           display: false
          }
        }],
        yAxes: [{
@@ -569,7 +567,7 @@ var eduChart05 = new Chart(ctx, {
            }
          },
          gridLines: {
-           display: false
+           display: true
          }
        }]
      }
@@ -601,12 +599,6 @@ var update_caption05 = function(legend) {
 <!-- Impact on Research -->
 <script>
   var ctx = document.getElementById("eduChart06").getContext('2d');
-
-// var original = Chart.defaults.global.legend.onClick;
-// Chart.defaults.global.legend.onClick = function(e, legendItem) {
-//   update_caption(legendItem);
-//   original.call(this, e, legendItem);
-// };
 
 var eduChart06 = new Chart(ctx, {
   type: 'pie',
@@ -644,7 +636,7 @@ var eduChart06 = new Chart(ctx, {
   options: {
      responsive: true,
      legend: {
-       position: 'bottom',
+       position: 'top',
      },
      hover: {
        mode: 'label'
@@ -698,50 +690,100 @@ var update_caption05 = function(legend) {
 
 {% block content %}
 
-<h1>IMPACT on Education</h1>
-<canvas id="eduChart01" width="400" height="180"></canvas>
-<p id="educaption">The chart is displaying status of educational institution in 2020 of February, March and April.</p>
-<p>Source: <a href="https://en.unesco.org/covid19/educationresponse ">UNESCO</a></p>
-<br>
-<br>
-<br>
-<canvas id="eduChart02" width="400" height="180"></canvas>
-<br>
-<p id="educaption02">The chart is displaying status of educational institution in 2020 of May, June and July.</p>
+<section class="section-education--01 u-padding-top-huge">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="heading-secondary--main text-center">IMPACT on Education</h2>
+        <p class="heading-secondary--sub text-center">UNESCO
+          estimates that near 900 million students have been influenced by the closure of educational
+          institutions.</p>
+        <canvas class="pt-5" id="eduChart01" width="400" height="180"></canvas>
+        <p class="text-center" id="educaption">The chart is displaying status of educational institution in 2020 of February, March and April.</p>
+        <p class="text-center">Source: <a href="https://en.unesco.org/covid19/educationresponse ">UNESCO</a></p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<br>
-<br>
-<br>
-<canvas id="eduChart03" width="400" height="180"></canvas>
-<br>
-<p id="educaption03">The chart is displaying status of educational institution in 2020 of August, September and October.</p>
-<br>
-<br>
-<br>
-<canvas id="eduChart04" width="400" height="180"></canvas>
-<br>
-<p id="educaption04">The chart is displaying status of educational institution in 2020 of November and December.</p>
-<br>
-<br>
-<br>
-<canvas id="eduChart05" width="400" height="180"></canvas>
-<br>
-<p id="educaption05">The chart is displaying status of educational institution in 2021 of January, February and March.</p>
-<br>
-<br>
-<br>
-<canvas id="eduChart06" width="400" height="180"></canvas>
-<br>
-<p id="educaption06">The chart is displaying impact on Research</p>
+<section class="section-education--02 u-section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <h2 class="heading-secondary--main text-center">TITLE</h2>
+        <p class="heading-secondary--sub text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque, nihil. Molestias dolore dolorum at consequatur, ab neque accusamus inventore, vitae, harum eos necessitatibus maiores debitis minus consequuntur facere impedit mollitia.</p> -->
+        <canvas class="pt-5" id="eduChart02" width="400" height="180"></canvas>
+        <br>
+        <p id="educaption02">The chart is displaying status of educational institution in 2020 of May, June and July.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<p>Source: <a href="https://www.iau-aiu.net/">International Association of Universities
-  : The Global Voice of Higher Education</a></p>
-  <br>
-  <br>
+<section class="section-education--03 u-section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <h2 class="heading-secondary--main text-center">TITLE2</h2>
+        <p class="heading-secondary--sub text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates iure corporis tempore, hic et molestias, dignissimos doloribus dolorem ipsam eveniet suscipit debitis, impedit eligendi placeat pariatur incidunt voluptate nemo maxime.</p> -->
+        <canvas class="pt-5" id="eduChart03" width="400" height="180"></canvas>
+        <br>
+        <p id="educaption03">The chart is displaying status of educational institution in 2020 of August, September and October.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section class="section-education--04 u-section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <h2 class="heading-secondary--main text-center">title03</h2>
+        <p class="heading-secondary--sub text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam facere consectetur porro reiciendis animi ullam cumque minima excepturi accusantium minus nostrum modi praesentium, voluptatum quidem mollitia at nam repellendus esse?</p> -->
+        <canvas class="pt-5" id="eduChart04" width="400" height="180"></canvas>
+        <br>
+        <p class="text-center" id="educaption04">The chart is displaying status of educational institution in 2020 of November and December.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h1 id='red'>81%</h1>
-<h1 id='orange'>83%</h1>
-<h1 id='yellow'>52%</h1>
-<h1 id='blue'>21%</h1>
+<section class="section-education--05 u-section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <h2 class="heading-secondary--main text-center">Title04</h2>
+        <p class="heading-secondary--sub text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, delectus voluptate. Et hic rem, aliquam eveniet accusamus quaerat ducimus nemo iusto distinctio iste! Expedita fugiat rem quo numquam! Deleniti, voluptates!</p> -->
+        <canvas class="text-center" id="eduChart05" width="400" height="180"></canvas>
+        <br>
+        <p class="text-center" id="educaption05">The chart is displaying status of educational institution in 2021 of January, February and March.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-education--06 u-section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="heading-secondary--main text-center">Impact on research</h2>
+        <p class="heading-secondary--sub text-center">As much as 80% of higher education institutes reported that research at their institutions has been affected by the COVID-19 pandemic.
+        </p>
+        <canvas class="pt-5" id="eduChart06" width="400" height="180"></canvas>
+        <br>
+        <p class="text-center" id="educaption06">The chart is displaying impact on Research</p>
+
+        <p class="text-center">Source: <a href="https://www.iau-aiu.net/">International Association of Universities
+          : The Global Voice of Higher Education</a></p>
+
+          <h1 id='red'>81%</h1>
+          <h1 id='orange'>83%</h1>
+          <h1 id='yellow'>52%</h1>
+          <h1 id='blue'>21%</h1>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock content %}

@@ -1,3 +1,7 @@
+.u-section-padding {
+  padding: 5rem 0rem !important;
+}
+
 .u-center-text {
   text-align: center !important;
 }
@@ -9,41 +13,60 @@
 .u-margin-bottom-medium {
   margin-bottom: 4rem !important;
 }
+
 .u-margin-bottom-small {
   margin-bottom: 1.5rem !important;
 }
+
 .u-margin-top-huge {
   margin-top: 10rem !important;
 }
+
+.u-margin-top-huge-2 {
+  margin-top: 25rem !important;
+}
+
 .u-margin-top-medium {
-  margin-top: 8rem !important;
+  margin-top: 5rem !important;
+}
+
+.u-margin-top-small {
+  margin-top: 3rem !important;
+}
+
+.u-padding-top-huge {
+  padding-top: 20rem;
 }
 
 
 #educaption06 {
   position: relative;
 }
+
 #red {
   position: absolute;
-  top: 340rem;
-  left: 77rem;
+  top: 412rem;
+  left: 76rem;
   color: $color-white;
 }
+
 #orange {
   position: absolute;
-  top: 357rem;
+  top: 428rem;
   left: 65rem;
   color: $color-white;
 }
+
 #yellow {
   position: absolute;
-  top: 341rem;
+  top: 413rem;
   left: 53rem;
   color: $color-white;
 }
+
 #blue {
   position: absolute;
-  top: 331rem;
+  top: 404rem;
   left: 62rem;
   color: $color-white;
 }

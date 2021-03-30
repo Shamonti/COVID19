@@ -1,35 +1,38 @@
 {% extends 'covid19App/base.html' %}
+{% load static %}
 
-{% block title %}COVID19{% endblock title%}
 
+{% block title%}COVID19{% endblock title%}
 {% block content %}
 
-<div class="container-fluid">
 
-    <!-- BANNER -->
-    <section class=" section-banner">
+<!-- BANNER -->
+<section class="section-banner u-padding-top-huge">
+    <div class="background"></div>
+    <div class="container">
         <div class="row">
             <div class="col-md-6 section-banner__text">
                 <h3 class="heading-primary">corona virus</h3>
-                <h1 class="heading-primary--main">covid-<span>19</span> </h1>
-                <p class="heading-primary--sub pt-1">Find Out How CoronaVirus Is Claiming Thousands of Lives & What You
-                    Can
-                    Do To
-                    Stay Safe</p>
-                <div class="btn btn--square pt-5 mt-3">Stay Home, Stay Safe</div>
+                <h1 class="heading-primary--main">covid-<span>19</span></h1>
+                <p class="heading-primary--sub pt-1">
+                    Find Out How CoronaVirus Is Claiming Thousands of Lives & What You Can
+                    Do To Stay Safe
+                </p>
+                <a class="btn btn--square pt-5 mt-3" href="#top">Stay Home, Stay Safe</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- TRACKER -->
-    <section class="section-tracker  u-margin-top-medium">
+<!-- TRACKER -->
+<section class="section-tracker u-section-padding" id="tracker">
+    <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <br>
+                <br />
                 <h1 class="heading-secondary--main">TRACK THE SPREAD OF COVID-19</h1>
             </div>
         </div>
-
         <br>
 
         <div class="row">
@@ -72,20 +75,312 @@
 
         <div class="row">
             <div class="col-md-12">
-                <br>
-                <p>Source: <a href="https://documenter.getpostman.com/view/10808728/SzS8rjbc">https://documenter.getpostman.com/view/10808728/SzS8rjbc</a> </p>
+                <br />
+                <p class="text-center">
+                    Source:
+                    <a
+                        href="https://documenter.getpostman.com/view/10808728/SzS8rjbc">Postman API</a>
+                </p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="">
-        <div class="row mt-5">
-            <div class="col-md-12"></div>
+</section>
+
+<!-- SPREAD -->
+<section class="section-spread u-section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="heading-secondary--main">
+                    How does covid-19 <br />
+                    spread?
+                </h1>
+                <p class="heading-secondary--sub">
+                    The virus is transmitted through direct <br />
+                    contact with respiratory droplets of an <br />
+                    infected person.
+                </p>
+            </div>
+            <div class="col-md-4 u-margin-bottom-small">
+                <div class="card">
+                    <div class="card-img">
+                        <img class="card-img-top" src="{% static 'img/coughing.png' %}" alt="" />
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title">Coughing Or Sneezing</h1>
+                        <p class="card-text">
+                            Coronavirus can spread if an infected person coughs or sneezes
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 u-margin-bottom-medium">
+                <div class="card">
+                    <div class="card-img">
+                        <img class="card-img-top" src="{% static 'img/coughing.png' %}" alt="" />
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title">Coughing Or Sneezing</h1>
+                        <p class="card-text">
+                            Coronavirus can spread if an infected person coughs or sneezes
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card__darkbg">
+                    <div class="card-img">
+                        <img class="card-img-top" src="{% static 'img/coughing.png' %}" alt="" />
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title text-white">Coughing Or Sneezing</h1>
+                        <p class="card-text text-white">
+                            Coronavirus can spread if an infected person coughs or sneezes
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STAY HEALTHY -->
+<section class="section-stay_healthy u-section-padding" id="stay_healthy">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-md-6">
+                <h1 class="heading-secondary--main u-margin-top-medium">
+                    HOW TO STAY HEALTHY <br />
+                    DURING COVID19
+                </h1>
+                <p class="heading-secondary--sub">
+                    You can take several precautions to protect yourself and loved ones
+                    from the novel coronavirus.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <div class="accordion accordion-flush" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Wash Your Hands Frequently
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>
+                                        Wash your hands as frequently as you can, especially before
+                                        and after meals, OR after coughing or sneezing
+                                    </li>
+                                    <li>Use hand sanitizers when you cannot use soap</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Avoid Going To Public Places
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>Maintain a social distance of at least 1 meter from others</li>
+                                    <li>Avoid close contact with anyone that has a fever and cough</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+    
+                                Stay Home If You’re Unwell
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>
+                                        Stay in a seperate roon and away fron others
+                                    </li>
+                                    <li>
+                                        Open windows frequently
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+    
+                                Practice Good Hygiene
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>
+                                        Avoid touching your eyes, nose and mouth
+                                    </li>
+                                    <li>
+                                        Cover your mouth and nose with your bent elbow or tissue when you cough or
+                                        sneeze
+                                    </li>
+                                    <li>
+                                        Clean and disinfect surfaces frequently especially those which are regularly
+                                        touched
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+    
+                                Be Active at Home
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>
+                                        Do some muscle strength and balance training
+                                    </li>
+                                    <li>
+                                        Dance to music
+                                    </li>
+                                    <li>
+                                        Try skipping rope
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-faq u-section-padding" id="faq">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1 class="heading-secondary--main">
+                    FREQUENTLY ASKED QUESTIONS
+                </h1>
+            </div>
+            <div class="col-md-12 u-margin-top-medium">
+                <div class="accordion accordion-flush" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                What is COVID-19?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body p-5">
+                                COVID-19 is a new disease, caused by a novel (or new) coronavirus that has not
+                                previously been seen in humans. Because it is a new virus, scientists are learning more
+                                each day. Although most people who have COVID-19 have mild symptoms, COVID-19 can also
+                                cause severe illness and even death. Some groups, including older adults and people who
+                                have certain underlying medical conditions, are at increased risk of severe illness.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How does the virus spread?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body p-5">
+                                COVID-19 is thought to spread mainly through close contact from person to person,
+                                including between people who are physically near each other (within about 6 feet).
+                                People who are infected but do not show symptoms can also spread the virus to others.
+                                Cases of reinfection with COVID-19 have been reported but are rare. We are still
+                                learning about how the virus spreads and the severity of illness it causes.
+    
+                                COVID-19 spreads very easily from person to person. How easily a virus spreads from
+                                person to person can vary. The virus that causes COVID-19 appears to spread more
+                                efficiently than influenza but not as efficiently as measles, which is among the most
+                                contagious viruses known to affect people.
+    
+                                For more information about how COVID-19 spreads, visit the How COVID-19 Spreads page to
+                                learn how COVID-19 spreads and how to protect yourself.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+    
+                                What are the symptoms of someone infected with a coronavirus?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body p-5">
+                                It depends on the virus, but common signs include respiratory symptoms, fever, cough,
+                                shortness of breath, and breathing difficulties. In more severe cases, infection can
+                                cause pneumonia, severe acute respiratory syndrome, kidney failure and even death.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+    
+                                What can I do to protect myself?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body p-5">
+                                Standard recommendations to reduce exposure to and transmission of a range of illnesses
+                                include maintaining basic hand and respiratory hygiene, and safe food practices and
+                                avoiding close contact, when possible, with anyone showing symptoms of respiratory
+                                illness such as coughing and sneezing.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-    <!-- <h4 class="border rounded p-3">
+
+
+<!-- <h4 class="border rounded p-3">
         <div class="display-8">
             Country Wise Summary
         </div>
@@ -114,5 +409,4 @@
         </tbody>
     </table> -->
 
-</div>
 {% endblock content %}

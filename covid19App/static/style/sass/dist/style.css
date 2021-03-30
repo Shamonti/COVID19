@@ -12,6 +12,8 @@ html {
 
 body {
   box-sizing: border-box;
+  font-size: 1.6rem;
+  color: #4d4d4d;
 }
 
 body {
@@ -54,9 +56,126 @@ a {
   margin-top: 10rem !important;
 }
 
-.card {
-  background-color: #FF6276;
-  color: white;
+.u-margin-top-huge-2 {
+  margin-top: 25rem !important;
+}
+
+.u-margin-top-medium {
+  margin-top: 5rem !important;
+}
+
+.u-margin-top-small {
+  margin-top: 3rem !important;
+}
+
+#educaption06 {
+  position: relative;
+}
+
+#red {
+  position: absolute;
+  top: 354rem;
+  left: 75rem;
+  color: #ffffff;
+}
+
+#orange {
+  position: absolute;
+  top: 369rem;
+  left: 65rem;
+  color: #ffffff;
+}
+
+#yellow {
+  position: absolute;
+  top: 356rem;
+  left: 55rem;
+  color: #ffffff;
+}
+
+#blue {
+  position: absolute;
+  top: 347rem;
+  left: 62rem;
+  color: #ffffff;
+}
+
+.btn--square {
+  font-family: "Anton", sans-serif;
+  font-weight: 300;
+  font-size: 2rem !important;
+  font-weight: 300;
+  line-height: 2rem;
+  letter-spacing: 0px;
+  border-radius: 0.5rem;
+  background-color: #ff6276;
+  padding: 0 2rem 2.5rem 2rem;
+  color: #ffffff;
+}
+.btn:hover {
+  color: #ffffff;
+  background-color: #ff4c5d;
+}
+
+.section-tracker .card {
+  background-color: #ff6276;
+  color: #ffffff;
+  border-right: 0.5rem solid #ffffff !important;
+  border: none;
+  max-width: 25rem;
+  max-height: 12.5rem !important;
+  text-align: center;
+  padding: 2.4rem 0;
+}
+.section-tracker .card:first-child {
+  margin-left: auto;
+  border-top-left-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+  padding: 2.4rem 0 2.5rem 2rem;
+}
+.section-tracker .card:last-child {
+  border-right: none !important;
+  margin-right: auto;
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  padding: 2.4rem 2rem 2.5rem 0;
+}
+.section-tracker .card-title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  line-height: 2rem;
+}
+.section-tracker .card-text {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 2.8rem;
+}
+
+.section-spread {
+  position: relative;
+}
+.section-spread .card {
+  text-align: center;
+  border: none;
+  width: 90%;
+  height: 30rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1rem;
+}
+.section-spread .card-img-top {
+  height: 20rem;
+  width: 20rem;
+}
+.section-spread .card-title {
+  color: #313656;
+}
+.section-spread .card-text {
+  color: #818a91;
 }
 
 .navbar-brand {
@@ -84,11 +203,15 @@ a {
   height: 90vh;
 }
 .section-banner__text {
-  padding-top: 15rem;
+  padding-top: 14rem;
 }
 .section-banner__text .heading-primary {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2rem;
   text-transform: uppercase;
-  letter-spacing: 0.15rem;
+  letter-spacing: 0.1rem;
 }
 .section-banner__text .heading-primary--main {
   font-family: "Anton", sans-serif;
@@ -102,6 +225,26 @@ a {
   color: #ff6276;
 }
 .section-banner__text .heading-primary--sub {
+  font-size: 2.2rem;
+  color: #8c969f;
+  font-weight: 500;
+  line-height: 4.4rem;
+  letter-spacing: 0.03rem;
+}
+
+.heading-secondary--main {
+  font-family: "Anton", sans-serif;
+  font-weight: 300;
+  font-size: 5.6rem;
+  line-height: 6.7rem;
+  color: #313656 !important;
+  padding: 1.5rem 0 !important;
+  text-transform: uppercase;
+}
+.heading-secondary--main span {
+  color: #ff6276;
+}
+.heading-secondary--sub {
   font-size: 2.2rem;
   color: #8c969f;
   font-weight: 500;

@@ -43,9 +43,16 @@
       }
     });
   })
-</script>-->
+</script> -->
 
 <script>
+  Chart.defaults.global.defaultFontStyle = 'bolder';
+  Chart.defaults.global.defaultFontSize = 16;
+  Chart.Legend.prototype.afterFit = function() {
+    this.height = this.height + 30;
+  };
+
+
   var ctx = document.getElementById("myChart").getContext('2d');
 
 var original = Chart.defaults.global.legend.onClick;
@@ -80,7 +87,44 @@ var myChart = new Chart(ctx, {
       data: [{% for item in economy21_qs %}'{{item.gdp21}}', {% endfor %}],}
     ]
 
-  }
+  },
+  options: {
+     responsive: true,
+     legend: {
+       position: 'top',
+        labels: {
+          fontSize: 16,
+        }
+     },
+     hover: {
+       mode: 'label'
+     },
+     scales: {
+       xAxes: [{
+         display: true,
+         scaleLabel: {
+           display: false,
+           labelString: ''
+         },
+         gridLines: {
+           display: false
+         }
+       }],
+       yAxes: [{
+         display: true,
+         scaleLabel: {
+           display: true,
+           labelString: 'GDP in %percentage'
+         },
+         ticks: {
+
+         },
+         gridLines: {
+           display: true
+         }
+       }]
+     }
+   }
 });
 
 var labels = {
@@ -138,7 +182,44 @@ var unemploymentChart = new Chart(ctx, {
       data: [{% for item in unemploy20_qs %}'{{item.rate}}', {% endfor %}],
     }]
 
-  }
+  },
+
+  options: {
+     responsive: true,
+     legend: {
+       position: 'top',
+     },
+     hover: {
+       mode: 'label'
+     },
+     scales: {
+       xAxes: [{
+         display: true,
+         scaleLabel: {
+           display: false,
+           labelString: ''
+         },
+         ticks: {
+         },
+         gridLines: {
+           display: false
+         }
+       }],
+       yAxes: [{
+         display: true,
+         scaleLabel: {
+           display: true,
+           labelString: 'Rate of Unemployment'
+         },
+         ticks: {
+
+         },
+         gridLines: {
+           display: true
+         }
+       }]
+     }
+   }
 });
 
 var labels = {
@@ -166,20 +247,40 @@ var update_caption = function(legend) {
 
 {% block content %}
 
-<h1>ECONOMIC IMPACT</h1>
-<canvas id="myChart" width="400" height="180"></canvas>
+<section class="section-gdp u-padding-top-huge">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="heading-secondary--main text-center">Impact of COVID-19 on the global economy</h2>
+        <p class="heading-secondary--sub text-center">Between April and June 2020, the International Labour
+          Organization assessed that a likeness of 400 million everyday positions was lost across the
+          world, and pay procured by laborers worldwide fell 10% in the initial nine months of 2020,
+          comparable to a deficiency of over US$3.5 trillion.</p>
+        <canvas class="pt-5" id="myChart" width="400" height="180"></canvas>
+        
+        <p class="text-center" id="caption">The chart is displaying GDP in percentage of 2019, 2020 and 2021.</p>
+        
+        <p class="text-center">Source: <a href="https://www.imf.org/en/Publications/WEO/Issues/2021/01/26/2021-world-economic-outlook-update">World Economic Outlook(WEO)</a></p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<p id="caption">The chart is displaying GDP in percentage of 2019, 2020 and 2021.</p>
+<section class="section-employment u-section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="heading-secondary--main text-center">Impact on the unemployment rate</h2>
+        <p class="heading-secondary--sub text-center">Racial and ethnic minorities had relatively high unemployment rates in April (16.7% for Black
+          workers compared to 14.2% for White workers, and 18.9% for Hispanic workers compared to
+          13.6% for non-Hispanic workers) in 2020.</p>
+        <canvas class="pt-5" id="unemploymentChart" width="400" height="180"></canvas>
+        
+        <p class="text-center" id="caption02">The chart is displaying GDP in percentage of 2019, 2020 and 2021.</p>
+        <p class="text-center">Source: <a href="https://ilostat.ilo.org/data/">International Labour Organization(ILO)</a></p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<p>Source: <a href="https://www.imf.org/en/Publications/WEO/Issues/2021/01/26/2021-world-economic-outlook-update">World Economic Outlook(WEO)</a></p>
-<br>
-<br>
-
-<h1>ECONOMIC IMPACT on EMPLOYMENT</h1>
-<canvas id="unemploymentChart" width="400" height="180"></canvas>
-
-<p id="caption02">The chart is displaying GDP in percentage of 2019, 2020 and 2021.</p>
-<p>Source: <a href="https://ilostat.ilo.org/data/">International Labour Organization(ILO)</a></p>
-<br>
-<br>
 {% endblock content %}
