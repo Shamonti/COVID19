@@ -13,9 +13,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '5ma85&69&zdd*7x#m9qtjy$$kuv=l&u-wp#%y@*cr$&u513l=6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['shamonti.pythonanywhere.com']
 
 
 # Application definition
